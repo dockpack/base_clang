@@ -10,7 +10,7 @@ lint: |
   ansible-lint
 platforms:
   - name: base-clang-centos8
-    image: centos:8.3.2011
+    image: quay.io/centos/centos:stream8
     privileged: true
   - name: base-clang-centos7
     image: centos:7

@@ -9,5 +9,3 @@ command:
     exit-status: 1
     stderr:
       - lld is a generic driver.
-  lldb:
-    exit-status: 0

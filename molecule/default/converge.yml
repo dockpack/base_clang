@@ -3,11 +3,13 @@
   vars_files:
     - ../../defaults/main.yml
   vars:
+    role_name: "{{ lookup('env', 'MOLECULE_PROJECT_DIRECTORY') | basename }}"
     DTSVER: 7  # Actually llvm_toolkit version
     CLANG: 10
-  roles:
-    - role: base_clang
-      vars:
-        collections_enabled: true
-        llvm_compilation: false
-      tags: 'clang'
+    collections_enabled: true
+    llvm_compilation: false
+
+  tasks:
+    - name: "Include {{ role_name }}"
+      ansible.builtin.include_role:
+        name: "{{ role_name }}"

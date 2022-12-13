@@ -1,13 +1,13 @@
 ---
 dependency:
   name: galaxy
-  requirements_file: requirements.yml
+  role-file: requirements.yml
 driver:
   name: docker
 lint: |
   set -e
   yamllint .
-  ansible-lint
+  ANSIBLE_ROLES_PATH=${MOLECULE_EPHEMERAL_DIRECTORY}/roles ansible-lint
 platforms:
   - name: base-clang-centos8
     image: quay.io/centos/centos:stream8
